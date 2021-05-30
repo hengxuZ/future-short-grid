@@ -1,0 +1,64 @@
+{
+    "coinList": [
+        "EOSUSDT",
+        "ONTUSDT",
+        "FILUSDT",
+        "DASHUSDT"
+    ],
+    "EOSUSDT": {
+        "runBet": {
+            "future_buy_price": 6.206,
+            "future_sell_price": 5.529,
+            "future_step": 1
+        },
+        "config": {
+            "profit_ratio": 5.5,
+            "double_throw_ratio": 6.0,
+            "future_quantity": [
+                20
+            ]
+        }
+    },
+    "ONTUSDT": {
+        "runBet": {
+            "future_buy_price": 1,
+            "future_sell_price": 0.9,
+            "future_step": 0
+        },
+        "config": {
+            "profit_ratio": 5.25,
+            "double_throw_ratio": 5.5,
+            "future_quantity": [
+                100
+            ]
+        }
+    },
+    "DASHUSDT": {
+        "runBet": {
+            "future_buy_price": 182,
+            "future_sell_price": 165,
+            "future_step": 0
+        },
+        "config": {
+            "profit_ratio": 5,
+            "double_throw_ratio": 5.5,
+            "future_quantity": [
+                1
+            ]
+        }
+    },
+    "FILUSDT": {
+        "runBet": {
+            "future_buy_price": 72,
+            "future_sell_price": 60,
+            "future_step": 0
+        },
+        "config": {
+            "profit_ratio": 5.25,
+            "double_throw_ratio": 5.5,
+            "future_quantity": [
+                2
+            ]
+        }
+    }
+}
