@@ -66,17 +66,17 @@ class Run_Main():
 
 
 if __name__ == "__main__":
-    # instance = Run_Main()
-    # try:
-    #     instance.loop_run()
-    # except Exception as e:
-    #     error_info = "报警：币种{coin},偏空网格服务停止.错误原因{info}".format(coin=instance.coinType,info=str(e))
-    #     msg.dingding_warn(error_info)
+    instance = Run_Main()
+    try:
+        instance.loop_run()
+    except Exception as e:
+        error_info = "报警：币种{coin},偏空网格服务停止.错误原因{info}".format(coin=instance.coinType,info=str(e))
+        msg.dingding_warn(error_info)
 
 
 #调试看报错运行下面，正式运行用上面
 # if __name__ == "__main__":
 
-  instance = Run_Main()
-  instance.loop_run()
+#   instance = Run_Main()
+#   instance.loop_run()
   #   print(runbet.get_future_buy_price("EOSUSDT"))
