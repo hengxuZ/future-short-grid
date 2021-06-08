@@ -149,8 +149,8 @@ class RunBetData:
 
         else: # 系数内震荡行情
 
-            data_json['config']['double_throw_ratio'] = 3 +self.get_future_step(symbol)/4
-            data_json['config']['profit_ratio'] = 3 + self.get_future_step(symbol)/4
+            data_json['config']['double_throw_ratio'] = 2 +self.get_future_step(symbol)/4
+            data_json['config']['profit_ratio'] = 2 + self.get_future_step(symbol)/4
         self._modify_json_data(data_json)
 
     def delete_extra_zero(self, n):
