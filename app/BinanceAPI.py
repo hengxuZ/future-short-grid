@@ -171,7 +171,7 @@ class BinanceAPI(object):
         res = requests.get(url, headers=header,timeout=30, verify=True).json()
         if isinstance(res,dict):
             if 'code' in res:
-                error_info = "报警：币种{coin},请求异常.错误原因{info}".format(coin=self.get_cointype(), info=str(res))
+                error_info = "报警：请求异常.错误原因{info}".format( info=str(res))
                 self.dingding_warn(error_info)
         return res
         
@@ -181,7 +181,7 @@ class BinanceAPI(object):
         res = requests.get(url, timeout=180, verify=True).json()
         if isinstance(res, dict):
             if 'code' in res:
-                error_info = "报警：币种{coin},请求异常.错误原因{info}".format(coin=self.get_cointype(), info=str(res))
+                error_info = "报警：请求异常.错误原因{info}".format( info=str(res))
                 self.dingding_warn(error_info)
 
         return res
@@ -207,7 +207,7 @@ class BinanceAPI(object):
 
         if isinstance(res,dict):
             if 'code' in res:
-                error_info = "报警：币种{coin},请求异常.错误原因{info}".format(coin=self.get_cointype(), info=str(res))
+                error_info = "报警：请求异常.错误原因{info}".format(info=str(res))
                 self.dingding_warn(error_info)
 
         return res
@@ -229,13 +229,7 @@ class BinanceAPI(object):
         }
         requests.post(api_url, json.dumps(json_text), headers=headers).content
 
-    def get_cointype(self):
-        '''读取json文件'''
-        tmp_json = {}
-        with open(data_path, 'r') as f:
-            tmp_json = json.load(f)
-            f.close()
-        return tmp_json["config"]["cointype"]
+
     def _format(self, price):
         return "{:.8f}".format(price)
 

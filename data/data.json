@@ -7,15 +7,16 @@
     ],
     "EOSUSDT": {
         "runBet": {
-            "future_buy_price": 6.206,
-            "future_sell_price": 5.529,
-            "future_step": 1
+            "future_buy_price": 5.082,
+            "future_sell_price": 4.48,
+            "future_step": 0,
+            "recorded_price": []
         },
         "config": {
             "profit_ratio": 5.5,
-            "double_throw_ratio": 6.0,
+            "double_throw_ratio": 5,
             "future_quantity": [
-                20
+                3
             ]
         }
     },
@@ -23,7 +24,8 @@
         "runBet": {
             "future_buy_price": 1,
             "future_sell_price": 0.9,
-            "future_step": 0
+            "future_step": 0,
+            "recorded_price": []
         },
         "config": {
             "profit_ratio": 5.25,
@@ -37,7 +39,8 @@
         "runBet": {
             "future_buy_price": 182,
             "future_sell_price": 165,
-            "future_step": 0
+            "future_step": 0,
+            "recorded_price": []
         },
         "config": {
             "profit_ratio": 5,
@@ -51,7 +54,8 @@
         "runBet": {
             "future_buy_price": 72,
             "future_sell_price": 60,
-            "future_step": 0
+            "future_step": 0,
+            "recorded_price": []
         },
         "config": {
             "profit_ratio": 5.25,

@@ -57,7 +57,8 @@ pip install requests
         "runBet": {
             "future_buy_price": 6.206,
             "future_sell_price": 5.529,
-            "future_step": 1
+            "future_step": 1,
+            "recorded_price": []                          # 用于记录每次卖出(空单的开仓对应的是卖出，你可以理解为买入)的价格
         },
         "config": {
             "profit_ratio": 5.5,
@@ -71,7 +72,8 @@ pip install requests
         "runBet": {
             "future_buy_price": 1,
             "future_sell_price": 0.9,
-            "future_step": 0
+            "future_step": 0,
+            "recorded_price": []                          # 用于记录每次卖出(空单的开仓对应的是卖出，你可以理解为买入)的价格
         },
         "config": {
             "profit_ratio": 5.25,

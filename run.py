@@ -41,6 +41,7 @@ class Run_Main():
                     if future_res['orderId']:
                         time.sleep(1)
                         runbet.set_ratio(coinType)
+                        runbet.set_record_price(coinType,cur_market_price)
                         runbet.modify_future_price(coinType,cur_market_price)  # 修改data.json中价格
                         runbet.set_future_step(coinType,future_step + 1)
                         time.sleep(60 * 1)  # 挂单后，停止运行1分钟
@@ -54,7 +55,8 @@ class Run_Main():
                         future_res = msg.do_sell_market_msg(coinType, runbet.get_future_quantity(coinType,False))  # 期货卖出开多
                         if future_res['orderId']:
                             runbet.set_ratio(coinType)
-                            runbet.modify_future_price(coinType,cur_market_price)  # 修改data.json中价格
+                            runbet.modify_future_price(coinType,runbet.get_record_price(coinType))  # 修改data.json中价格
+
                             runbet.set_future_step(coinType,future_step - 1)  # 挂卖单,仓位 -1
                             time.sleep(60 * 0.5)  # 挂单后，停止运行1分钟
                         else:
@@ -65,18 +67,19 @@ class Run_Main():
                 time.sleep(2) # 为了不被币安api请求次数限制
 
 
-if __name__ == "__main__":
-    instance = Run_Main()
-    try:
-        instance.loop_run()
-    except Exception as e:
-        error_info = "报警：币种{coin},偏空网格服务停止.错误原因{info}".format(coin=instance.coinType,info=str(e))
-        msg.dingding_warn(error_info)
+# if __name__ == "__main__":
+#     instance = Run_Main()
+#     try:
+#         instance.loop_run()
+#     except Exception as e:
+#         error_info = "报警：开空网格服务停止.错误原因{info}".format(info=str(e))
+#         msg.dingding_warn(error_info)
 
 
 #调试看报错运行下面，正式运行用上面
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
-#   instance = Run_Main()
-#   instance.loop_run()
-  #   print(runbet.get_future_buy_price("EOSUSDT"))
+    # instance = Run_Main()
+    # instance.loop_run()
+    print(runbet.get_record_price("EOSUSDT"))
+
