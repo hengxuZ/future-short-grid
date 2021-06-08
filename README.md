@@ -87,9 +87,10 @@ pip install requests
 ```
 # nohup python3 run.py > run.log &  #后台挂载 程序买卖、异常会通过钉钉通知(推荐使用钉钉模式启动👍)
 ```
+---
 
 如果您不想那么麻烦，又是python、linux 服务器。可以使用下面链接注册派网。体验网格交易
-![派网注册](https://www.pionex.cc/zh-CN/sign/ref/gP7byIO9)（通过该链接注册的用户，加我立马返现5元）
+![派网注册](https://www.pionex.cc/zh-CN/sign/ref/gP7byIO9)（通过该链接注册的用户，加我立马返现2元）
 
 ### 注意事项（一定要看）
 - 由于交易所的api在大陆无法访问，默认运行环境是国外的服务器,默认环境是python3(linux自带的是python2)
