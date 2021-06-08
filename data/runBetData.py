@@ -108,23 +108,23 @@ class RunBetData:
 
 
 
-    def modify_future_price(self, symbol,deal_price):
+    def modify_future_price(self, symbol,deal_price,step):
         data_json = self._get_json_data()
         right_size = len(str(deal_price).split(".")[1])
         data_json[symbol]["runBet"]["future_buy_price"] = round(deal_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), right_size) # 保留2位小数
         data_json[symbol]["runBet"]["future_sell_price"] = round(deal_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), right_size)
-
+        data_json[symbol]["runBet"]["future_step"] = step
         self._modify_json_data(data_json)
 
-    def set_future_step(self,symbol,future_step,index=None):
-        '''修改期货仓位数'''
-        data_json = self._get_json_data()
-        data_json[symbol]['runBet']['future_step'] = future_step
-        if index != None:
-            data_json[symbol]['config']['profit_ratio'] = index
-            data_json[symbol]['config']['double_throw_ratio'] = index
-
-        self._modify_json_data(data_json)
+    # def set_future_step(self,symbol,future_step,index=None):
+    #     '''修改期货仓位数'''
+    #     data_json = self._get_json_data()
+    #     data_json[symbol]['runBet']['future_step'] = future_step
+    #     if index != None:
+    #         data_json[symbol]['config']['profit_ratio'] = index
+    #         data_json[symbol]['config']['double_throw_ratio'] = index
+    #
+    #     self._modify_json_data(data_json)
 
     def set_record_price(self,symbol,value):
         '''记录交易价格'''
