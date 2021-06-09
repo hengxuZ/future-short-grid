@@ -126,12 +126,18 @@ class RunBetData:
     #
     #     self._modify_json_data(data_json)
 
-    def set_record_price(self,symbol,value):
+    def add_record_price(self,symbol,value):
         '''记录交易价格'''
         data_json = self._get_json_data()
         data_json[symbol]['runBet']['recorded_price'].append(value)
         self._modify_json_data(data_json)
 
+
+    def remove_record_price(self,symbol):
+        '''记录交易价格'''
+        data_json = self._get_json_data()
+        del data_json[symbol]['runBet']['recorded_price'][-1]
+        self._modify_json_data(data_json)
 
     def set_ratio(self,symbol):
         '''修改补仓止盈比率'''

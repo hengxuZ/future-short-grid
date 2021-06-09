@@ -50,13 +50,15 @@ class Run_Main():
 
                 # 平空
                 elif future_sell_price >= cur_market_price and index.calcAngle(coinType, "5m", False,right_size):  # 是否满足卖出价
-
+                    last_price = runbet.get_record_price(coinType)
+                    sell_amount = runbet.get_future_quantity(coinType,False)
+                    porfit_usdt = (last_price - cur_market_price) / sell_amount
                     if future_step > 0:
-                        future_res = msg.do_sell_market_msg(coinType, runbet.get_future_quantity(coinType,False))  # 期货卖出开多
+                        future_res = msg.do_sell_market_msg(coinType, sell_amount, porfit_usdt)  # 期货卖出开多
                         if future_res['orderId']:
                             runbet.set_ratio(coinType)
-                            runbet.modify_future_price(coinType,runbet.get_record_price(coinType),future_step - 1)  # 修改data.json中价格
-
+                            runbet.modify_future_price(coinType,last_price,future_step - 1)  # 修改data.json中价格
+                            runbet.remove_record_price()
                             time.sleep(60 * 0.5)  # 挂单后，停止运行1分钟
                         else:
                             break
@@ -81,4 +83,4 @@ if __name__ == "__main__":
     # instance = Run_Main()
     # instance.loop_run()
     # print(runbet.get_record_price("EOSUSDT"))
-
+    # runbet.remove_record_price("EOSUSDT")

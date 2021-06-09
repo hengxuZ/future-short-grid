@@ -91,8 +91,11 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key, api_secret).market_future_order("BUY", market, quantity, "SHORT")
+
             if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。网格做空卖单量为：{num}.".format(cointype=market,num=quantity)
+
+                buy_info = "报警：币种为：{cointype}。网格做空卖单量为：{num}.预计盈利{profit_num}".format(cointype=market,num=quantity,profit_num=profit_usdt)
+
                 self.dingding_warn(buy_info)
                 return res
         except BaseException as e:
