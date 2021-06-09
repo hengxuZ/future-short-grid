@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/runBetData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="135" column="8" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="8" />
+            <state relative-caret-position="539">
+              <caret line="128" column="24" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="24" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+            <state relative-caret-position="614">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
             </state>
           </provider>
         </entry>
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/dingding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+            <state relative-caret-position="389">
+              <caret line="116" column="46" lean-forward="true" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -94,6 +94,7 @@
       <find>get_cointype</find>
       <find>config</find>
       <find>remove_record_price</find>
+      <find>set_record_price</find>
       <find>record_price</find>
     </findStrings>
   </component>
@@ -223,12 +224,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623115350893</updated>
-      <workItem from="1623115357303" duration="13004000" />
+      <workItem from="1623115357303" duration="14565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13004000" />
+    <option name="totallyTimeSpent" value="14565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2509" y="-515" width="2509" height="1415" extended-state="6" />
@@ -324,15 +325,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/dingding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+        <state relative-caret-position="389">
+          <caret line="116" column="46" lean-forward="true" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/runBetData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="135" column="8" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="8" />
+        <state relative-caret-position="539">
+          <caret line="128" column="24" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="24" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -341,8 +342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+        <state relative-caret-position="614">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
