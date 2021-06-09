@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee5a51b-bf4c-4097-8058-b5b09a179a4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/dingding.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/dingding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/runBetData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="101" column="58" lean-forward="true" selection-start-line="101" selection-start-column="58" selection-end-line="101" selection-end-column="58" />
+            <state relative-caret-position="269">
+              <caret line="135" column="8" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="8" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+            <state relative-caret-position="328">
+              <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -93,6 +93,7 @@
       <find>modify_future_price</find>
       <find>get_cointype</find>
       <find>config</find>
+      <find>remove_record_price</find>
       <find>record_price</find>
     </findStrings>
   </component>
@@ -222,12 +223,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623115350893</updated>
-      <workItem from="1623115357303" duration="12676000" />
+      <workItem from="1623115357303" duration="13004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12676000" />
+    <option name="totallyTimeSpent" value="13004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2509" y="-515" width="2509" height="1415" extended-state="6" />
@@ -330,8 +331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/runBetData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="101" column="58" lean-forward="true" selection-start-line="101" selection-start-column="58" selection-end-line="101" selection-end-column="58" />
+        <state relative-caret-position="269">
+          <caret line="135" column="8" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="8" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -340,8 +341,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+        <state relative-caret-position="328">
+          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
         </state>
       </provider>
     </entry>

@@ -58,7 +58,7 @@ class Run_Main():
                         if future_res['orderId']:
                             runbet.set_ratio(coinType)
                             runbet.modify_future_price(coinType,last_price,future_step - 1)  # 修改data.json中价格
-                            runbet.remove_record_price()
+                            runbet.remove_record_price(coinType)
                             time.sleep(60 * 0.5)  # 挂单后，停止运行1分钟
                         else:
                             break
