@@ -94,7 +94,7 @@ class Message:
 
             if res['orderId']:
 
-                buy_info = "报警：币种为：{cointype}。网格做空卖单量为：{num}.预计盈利{profit_num}".format(cointype=market,num=quantity,profit_num=profit_usdt)
+                buy_info = "报警：币种为：{cointype}。网格做空卖单量为：{num}.预计盈利{profit_num}U".format(cointype=market,num=quantity,profit_num=round(profit_usdt,2))
 
                 self.dingding_warn(buy_info)
                 return res
