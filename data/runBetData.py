@@ -110,7 +110,7 @@ class RunBetData:
 
     def modify_future_price(self, symbol,deal_price,step):
         data_json = self._get_json_data()
-        right_size = len(str(deal_price).split(".")[1])
+        right_size = len(str(deal_price).split(".")[1]) + 2
         data_json[symbol]["runBet"]["future_buy_price"] = round(deal_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), right_size) # 保留2位小数
         data_json[symbol]["runBet"]["future_sell_price"] = round(deal_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), right_size)
         data_json[symbol]["runBet"]["future_step"] = step
