@@ -54,7 +54,7 @@ class Run_Main():
                     if future_step > 0:
                         last_price = runbet.get_record_price(coinType)
                         sell_amount = runbet.get_future_quantity(coinType, False)
-                        porfit_usdt = (last_price - cur_market_price) / sell_amount  # 计算预计盈利多少U
+                        porfit_usdt = abs(last_price - cur_market_price) * sell_amount  # 计算预计盈利多少U
                         future_res = msg.do_sell_market_msg(coinType, sell_amount, porfit_usdt)  # 期货卖出开多
                         if future_res['orderId']:
                             runbet.set_ratio(coinType)
