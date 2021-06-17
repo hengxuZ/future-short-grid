@@ -147,11 +147,11 @@ class RunBetData:
 
         if abs(ratio_24hr) >  10 : # 这是单边走势情况 只改变一方的比率
             if ratio_24hr > 0 : # 单边上涨，补仓比率不变
-                data_json[symbol]['config']['profit_ratio'] = 6 + self.get_future_step(symbol) #
-                data_json[symbol]['config']['double_throw_ratio'] = 5 - self.get_future_step(symbol)/4 #
+                data_json[symbol]['config']['profit_ratio'] = 2 + self.get_future_step(symbol) #
+                data_json[symbol]['config']['double_throw_ratio'] = 2 + self.get_future_step(symbol)/4 #
             else: # 单边下跌
-                data_json[symbol]['config']['double_throw_ratio'] =  6 + self.get_future_step(symbol)
-                data_json[symbol]['config']['profit_ratio'] =  5 - self.get_future_step(symbol)/4
+                data_json[symbol]['config']['double_throw_ratio'] =  2 + self.get_future_step(symbol)
+                data_json[symbol]['config']['profit_ratio'] =  2 + self.get_future_step(symbol)/4
 
         else: # 系数内震荡行情
 
