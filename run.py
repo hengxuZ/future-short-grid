@@ -42,7 +42,7 @@ class Run_Main():
                         time.sleep(1)
                         runbet.set_ratio(coinType)
                         runbet.add_record_price(coinType,cur_market_price) # 记录买入价格
-                        runbet.modify_future_price(coinType,cur_market_price,future_step + 1)  # 修改data.json中价格
+                        runbet.modify_future_price(coinType,cur_market_price,future_step + 1,cur_market_price)  # 修改data.json中价格
                         # runbet.set_future_step(coinType,)
                         time.sleep(60 * 1)  # 挂单后，停止运行1分钟
                     else:
@@ -58,7 +58,7 @@ class Run_Main():
                         future_res = msg.do_sell_market_msg(coinType, sell_amount, porfit_usdt)  # 期货卖出开多
                         if future_res['orderId']:
                             runbet.set_ratio(coinType)
-                            runbet.modify_future_price(coinType,last_price,future_step - 1)  # 修改data.json中价格
+                            runbet.modify_future_price(coinType,last_price,future_step - 1,cur_market_price)  # 修改data.json中价格
                             runbet.remove_record_price(coinType)
                             time.sleep(60 * 0.5)  # 挂单后，停止运行1分钟
                         else:
