@@ -108,11 +108,27 @@ class RunBetData:
 
 
 
-    def modify_future_price(self, symbol,deal_price,step):
+
+    def modify_future_price(self, symbol,deal_price,step,market_price):
+        '''
+
+        :param symbol: 交易对
+        :param deal_price: 参考价格
+        :param step: 步数。修改步数
+        :param market_price: 市场价格，检验修改后的价格是否小于市场价，避免来回平单
+        :return:
+        '''
         data_json = self._get_json_data()
         right_size = len(str(deal_price).split(".")[1]) + 2
         data_json[symbol]["runBet"]["future_buy_price"] = round(deal_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), right_size) # 保留2位小数
         data_json[symbol]["runBet"]["future_sell_price"] = round(deal_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), right_size)
+        #  如果修改的价格满足立刻卖出则，再次更改
+        if data_json[symbol]["runBet"]["future_buy_price"] < market_price:
+            data_json[symbol]["runBet"]["future_buy_price"] = round(
+                market_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), right_size)
+        elif data_json[symbol]["runBet"]["future_sell_price"] > market_price:
+            data_json[symbol]["runBet"]["future_sell_price"] = round(
+                market_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), right_size)
         data_json[symbol]["runBet"]["future_step"] = step
         self._modify_json_data(data_json)
 
@@ -147,10 +163,10 @@ class RunBetData:
 
         if abs(ratio_24hr) >  10 : # 这是单边走势情况 只改变一方的比率
             if ratio_24hr > 0 : # 单边上涨，补仓比率不变
-                data_json[symbol]['config']['profit_ratio'] = 2 + self.get_future_step(symbol) #
+                data_json[symbol]['config']['profit_ratio'] = 3 + self.get_future_step(symbol) #
                 data_json[symbol]['config']['double_throw_ratio'] = 2 + self.get_future_step(symbol)/4 #
             else: # 单边下跌
-                data_json[symbol]['config']['double_throw_ratio'] =  2 + self.get_future_step(symbol)
+                data_json[symbol]['config']['double_throw_ratio'] =  3 + self.get_future_step(symbol)
                 data_json[symbol]['config']['profit_ratio'] =  2 + self.get_future_step(symbol)/4
 
         else: # 系数内震荡行情
