@@ -64,7 +64,7 @@ class Run_Main():
                         else:
                             break
                     else:
-                        runbet.modify_future_price(coinType,cur_market_price,future_step)
+                        runbet.modify_future_price(coinType,cur_market_price,future_step,cur_market_price)
 
                 time.sleep(2) # 为了不被币安api请求次数限制
 
