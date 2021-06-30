@@ -140,10 +140,12 @@ pip install requests
 
 
 ### 私人微信：欢迎志同道合的朋友一同探讨，一起进步。
-![交流群](https://s3.ax1x.com/2021/01/08/snv3ss.jpg)
-![wechat-QRcode](https://s3.ax1x.com/2020/11/14/DPSYss.jpg)
+![qq交流群](https://img02.sogoucdn.com/app/a/100520146/D179E91E279E65E3DD642C24D482D23D)
+#### qq群号：1143200770
+
 ![币圈快讯爬取群](https://s3.ax1x.com/2021/02/01/yZSU4s.jpg)
-wx号：findpanpan
+![钉钉群二维码](https://i0.hdslb.com/bfs/album/4f50bfd7f1fddaa7c340bc06d7ce078404670fb2.jpg)
+
 麻烦备注来自github
 ### 钉钉设置教程
 ![钉钉设置教程](https://s3.ax1x.com/2021/01/08/suMVIK.png)
