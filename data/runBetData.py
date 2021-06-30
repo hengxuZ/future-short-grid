@@ -108,11 +108,26 @@ class RunBetData:
 
 
 
-    def modify_future_price(self, symbol,deal_price,step):
+    def modify_future_price(self, symbol,deal_price,step,market_price):
+        '''
+
+        :param symbol: 交易对
+        :param deal_price: 参考价格
+        :param step: 步数。修改步数
+        :param market_price: 市场价格，检验修改后的价格是否小于市场价，避免来回平单
+        :return:
+        '''
         data_json = self._get_json_data()
-        right_size = len(str(deal_price).split(".")[1]) + 2
-        data_json[symbol]["runBet"]["future_buy_price"] = round(deal_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), right_size) # 保留2位小数
-        data_json[symbol]["runBet"]["future_sell_price"] = round(deal_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), right_size)
+        # right_size = len(str(deal_price).split(".")[1]) + 2
+        data_json[symbol]["runBet"]["future_buy_price"] = round(deal_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), 6) # 保留2位小数
+        data_json[symbol]["runBet"]["future_sell_price"] = round(deal_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), 6)
+        #  如果修改的价格满足立刻卖出则，再次更改
+        if data_json[symbol]["runBet"]["future_buy_price"] < market_price:
+            data_json[symbol]["runBet"]["future_buy_price"] = round(
+                market_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), 6)
+        elif data_json[symbol]["runBet"]["future_sell_price"] > market_price:
+            data_json[symbol]["runBet"]["future_sell_price"] = round(
+                market_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), 6)
         data_json[symbol]["runBet"]["future_step"] = step
         self._modify_json_data(data_json)
 
@@ -139,24 +154,21 @@ class RunBetData:
         del data_json[symbol]['runBet']['recorded_price'][-1]
         self._modify_json_data(data_json)
 
+    def get_atr(self,symbol,interval='4h',kline_num=20):
+
+        data = binan.get_klines(symbol, interval, kline_num)
+        percent_total = 0
+        for i in range(len(data)):
+            percent_total = abs(float(data[i][3]) - float(data[i][2])) / float(data[i][4]) + percent_total
+
+        return round(percent_total/kline_num * 100,1)
+
     def set_ratio(self,symbol):
         '''修改补仓止盈比率'''
         data_json = self._get_json_data()
-        ratio_24hr = binan.get_ticker_24hour(symbol) #
-        index = abs(ratio_24hr)
-
-        if abs(ratio_24hr) >  10 : # 这是单边走势情况 只改变一方的比率
-            if ratio_24hr > 0 : # 单边上涨，补仓比率不变
-                data_json[symbol]['config']['profit_ratio'] = 6 + self.get_future_step(symbol) #
-                data_json[symbol]['config']['double_throw_ratio'] = 5 - self.get_future_step(symbol)/4 #
-            else: # 单边下跌
-                data_json[symbol]['config']['double_throw_ratio'] =  6 + self.get_future_step(symbol)
-                data_json[symbol]['config']['profit_ratio'] =  5 - self.get_future_step(symbol)/4
-
-        else: # 系数内震荡行情
-
-            data_json[symbol]['config']['double_throw_ratio'] = 2 +self.get_future_step(symbol)/4
-            data_json[symbol]['config']['profit_ratio'] = 2 + self.get_future_step(symbol)/4
+        atr_value = self.get_atr(symbol)
+        data_json[symbol]['config']['double_throw_ratio'] = atr_value
+        data_json[symbol]['config']['profit_ratio'] = atr_value
         self._modify_json_data(data_json)
 
     def delete_extra_zero(self, n):
