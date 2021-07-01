@@ -122,7 +122,7 @@ class RunBetData:
         data_json[symbol]["runBet"]["future_buy_price"] = round(deal_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), 6) # 保留2位小数
         data_json[symbol]["runBet"]["future_sell_price"] = round(deal_price * (1 - data_json[symbol]["config"]["double_throw_ratio"] / 100), 6)
         #  如果修改的价格满足立刻卖出则，再次更改
-        if data_json[symbol]["runBet"]["future_sell_price"] > market_price or data_json[symbol]["runBet"]["future_buy_price"] < market_price:
+        if data_json[symbol]["runBet"]["future_buy_price"] < market_price:
             data_json[symbol]["runBet"]["future_buy_price"] = round(
                 market_price * (1 + data_json[symbol]["config"]["profit_ratio"] / 100), 6)
         elif data_json[symbol]["runBet"]["future_sell_price"] > market_price:
